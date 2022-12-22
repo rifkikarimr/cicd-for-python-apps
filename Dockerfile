@@ -1,15 +1,15 @@
 FROM python:3
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get -y update 
+RUN apt-get install -y --fix-missing\
   build-essential \
   cmake \
   libopenblas-dev \
   liblapack-dev \
   libx11-dev \
-  libgtk-3-dev \
-  libboost-python-dev
+  libgtk-3-dev
 
-RUN pip install opencv-python dlib
+RUN pip install opencv-python
 
 COPY . /app
 

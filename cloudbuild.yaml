@@ -1,9 +1,9 @@
 steps:
   # Build the container image
   - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "gcr.io/arched-hybrid-368713/face-detection-gcr", "."]
+    args: ["build", "-t", "gcr.io/arched-hybrid-368713/facedetec-apps-repo", "."]
   # Push the container image to Container Registry
   - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/arched-hybrid-368713/face-detection-gcr"]
+    args: ["push", "gcr.io/arched-hybrid-368713/facedetec-apps-repo"]
 images:
-  - gcr.io/arched-hybrid-368713/face-detection-gcr
+  - gcr.io/arched-hybrid-368713/facedetec-apps-repo
