@@ -1,0 +1,9 @@
+steps:
+  # Build the container image
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gcr.io/arched-hybrid-368713/face-detection-gcr", "."]
+  # Push the container image to Container Registry
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/arched-hybrid-368713/face-detection-gcr"]
+images:
+  - gcr.io/arched-hybrid-368713/face-detection-gcr
