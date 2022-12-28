@@ -18,3 +18,4 @@ for (x, y, w, h) in faces:
 
 # Save the output image
 cv2.imwrite("output.jpg", image)
+print("Status Complete")

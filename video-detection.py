@@ -31,4 +31,4 @@ while True:
 # Release the video capture
 capture.release()
 
-# Destroy all windows
+print("Status Complete")

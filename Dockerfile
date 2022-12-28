@@ -1,3 +1,4 @@
+FROM arm64v8/debian:stable
 FROM python:3
 
 RUN apt-get -y update 
@@ -11,8 +12,10 @@ RUN apt-get install -y --fix-missing\
 
 RUN pip install opencv-python
 
+RUN pip install google-cloud-pubsub
+
 COPY . /app
 
 WORKDIR /app
 
-CMD ["python", "video-detection.py"]
+CMD ["python", "face-detection.py"]
