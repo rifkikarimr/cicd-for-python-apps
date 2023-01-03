@@ -18,4 +18,9 @@ for (x, y, w, h) in faces:
 
 # Save the output image
 cv2.imwrite("output.jpg", image)
-print("Status Complete")
+
+print("Image telah diperbaharui pada pukul 12 PM")
+print("Sekarang anda sedang menjalankan face detection apps.")
+print("Output dari aplikasi ini dapat anda lihat pada file output");
+
+

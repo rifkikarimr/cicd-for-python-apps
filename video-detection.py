@@ -31,4 +31,6 @@ while True:
 # Release the video capture
 capture.release()
 
-print("Status Complete")
+print("Image telah diperbaharui pada pukul 12 PM")
+print("Sekarang anda sedang menjalankan video detection apps.")
+print("Anda perlu terhubung dengan kamera untuk menjalankan apalikasi ini");
