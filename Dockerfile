@@ -16,4 +16,4 @@ COPY . /app
 
 WORKDIR /app
 
-CMD ["python", "face-detection.py"]
+CMD ["python", "video-detection.py"]
