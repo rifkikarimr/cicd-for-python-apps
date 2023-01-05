@@ -1,7 +1,7 @@
 steps:
   # Build the container image
   - name: "gcr.io/cloud-builders/docker"
-    args: ['buildx', 'build', '--platform=linux/arm64', '-t', , 'gcr.io/skripsi-113/facedetec-apps-repo', '.']
+    args: ['buildx', 'build', '--platform=linux/arm64', '-t', , 'gcr.io/skripsi-113/facedetec-apps-repo', '.', '--push']
   # Push the container image to Container Registry
   - name: "gcr.io/cloud-builders/docker"
     args: ["push", "gcr.io/skripsi-113/facedetec-apps-repo"]
