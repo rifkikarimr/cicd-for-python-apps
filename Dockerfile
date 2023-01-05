@@ -1,4 +1,4 @@
-FROM arm64v8/alpine:3.12
+FROM arm64v8/debian:stable
 FROM python:3
 
 RUN apt-get -y update 
