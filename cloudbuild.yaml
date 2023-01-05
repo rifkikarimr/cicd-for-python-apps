@@ -1,5 +1,5 @@
 steps:
-- name: 'docker'
+- name: 'gcr.io/cloud-builders/docker'
   args: [ 'buildx', 'create', '--name', 'mybuilder', '--use' ]
-- name: 'docker'
+- name: 'gcr.io/cloud-builders/docker'
   args: [ 'buildx', 'build', '--platform', 'linux/arm64', '-t', 'us-docker.pkg.dev/gke-autopilot-test/facedetec-apps-repo', '--push', '.', ]
