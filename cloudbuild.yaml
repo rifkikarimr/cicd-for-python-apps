@@ -1,15 +1,24 @@
 steps:
-  # Build the container image
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['buildx', 'install']
-  - name: "gcr.io/cloud-builders/docker"
-    args: ["buildx", "build", "--platform=linux/arm64", "-t", "gcr.io/skripsi-113/facedetec-apps-repo", "."]
-    # env:
-    #   - 'DOCKER_CLI_EXPERIMENTAL=enabled'
-    # image: 'gcr.io/cloud-builders/docker:2022-06-20-e2e'
-  # Push the container image to Container Registry
-  - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/skripsi-113/facedetec-apps-repo"]
+- name: 'gcr.io/cloud-builders/dockerize'
+  args: ['-t', 'gcr.io/$PROJECT_ID/arm64-image', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/arm64-image']
+
+
+
+
+# steps:
+#   # Build the container image
+#   - name: 'gcr.io/cloud-builders/docker'
+#     args: ['buildx', 'install']
+#   - name: "gcr.io/cloud-builders/docker"
+#     args: ["buildx", "build", "--platform=linux/arm64", "-t", "gcr.io/skripsi-113/facedetec-apps-repo", "."]
+#     # env:
+#     #   - 'DOCKER_CLI_EXPERIMENTAL=enabled'
+#     # image: 'gcr.io/cloud-builders/docker:2022-06-20-e2e'
+#   # Push the container image to Container Registry
+#   - name: "gcr.io/cloud-builders/docker"
+#     args: ["push", "gcr.io/skripsi-113/facedetec-apps-repo"]
 
 images: 
   - gcr.io/skripsi-113/facedetec-apps-repo
