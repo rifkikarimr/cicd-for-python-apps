@@ -10,12 +10,12 @@ RUN apt-get update && apt-get install -y \
  libgtk-3-dev \
  libboost-python-dev
 
+
+RUN pip install opencv-python dlib
+
+COPY . /app
+
 WORKDIR /app
-
-COPY . .
-
-RUN pip3 install -r requirements.txt
-
 
 CMD ["python", "face_detection.py"]
 
