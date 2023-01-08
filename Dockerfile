@@ -1,4 +1,5 @@
-FROM ubuntu:20.04
+FROM arm64v8/debian:stable
+FROM python:3
 # Install dependencies
 RUN apt-get update && apt-get install -y \
  build-essential \
