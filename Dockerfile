@@ -8,8 +8,8 @@ RUN apt-get update && apt-get install -y --fix-missing\
  liblapack-dev \
  libx11-dev \
  libgtk-3-dev \
- libboost-python-dev \
- qemu-user-static
+ libboost-python-dev 
+#  qemu-user-static
 
 # RUN curl -L https://github.com/docker/buildx/releases/download/v0.5.0/buildx-v0.5.0.linux-arm64 -o buildx
 # RUN chmod +x buildx
@@ -18,9 +18,9 @@ RUN apt-get update && apt-get install -y --fix-missing\
 
 RUN pip install opencv-python
 
-COPY qemu-user-static /usr/bin
+# COPY qemu-user-static /usr/bin
 
-ADD . .
+# ADD . .
 
 COPY . /app
 
