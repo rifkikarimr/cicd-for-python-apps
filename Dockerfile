@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 # Install dependencies
-RUN apt update && \
+RUN apt-get update && \
   apt-get install -y opencv-dev \
   opencv-python \
   dlib-dev \
