@@ -1,5 +1,4 @@
 FROM arm64v8/alpine:3.12
-FROM python:3
 
 # Install dependencies
 RUN apk update && apk add --no-cache \
