@@ -1,14 +1,7 @@
-FROM arm64v8/debian:stable
-FROM python:3
-# Install dependencies
-RUN apt-get update && apt-get install -y && apt-cache search libopenblas-dev\
- build-essential \
- cmake \
- libopenblas-dev \
- liblapack-dev \
- libx11-dev \
- libgtk-3-dev \
- libboost-python-dev
+FROM ubuntu:20.04
+
+RUN apt-get update && \
+    apt-get install -y build-essential cmake libopenblas-dev liblapack-dev libx11-dev libgtk-3-dev libboost-python-dev
 
 RUN curl -L https://github.com/docker/buildx/releases/download/v0.5.0/buildx-v0.5.0.linux-arm64 -o buildx
 RUN chmod +x buildx
