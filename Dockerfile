@@ -1,14 +1,14 @@
 FROM ubuntu:20.04
 FROM python:3
 
-RUN apt-get update && apt-get install -y --fix-missing\
- build-essential \
- cmake \
- libopenblas-dev \
- liblapack-dev \
- libx11-dev \
- libgtk-3-dev \
- libboost-python-dev 
+RUN apt-get update --fix-missing
+#  build-essential \
+#  cmake \
+#  libopenblas-dev \
+#  liblapack-dev \
+#  libx11-dev \
+#  libgtk-3-dev \
+#  libboost-python-dev 
 #  qemu-user-static
 
 # RUN curl -L https://github.com/docker/buildx/releases/download/v0.5.0/buildx-v0.5.0.linux-arm64 -o buildx
