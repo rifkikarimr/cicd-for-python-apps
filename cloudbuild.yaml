@@ -1,12 +1,41 @@
-steps:
-  # Build the container image
-  # - name: 'gcr.io/cloud-builders/docker'
-  #   args: ['buildx', 'install']
-  - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "--build-arg", "ARCH=arm64", "-t", "gcr.io/skripsi-113/facedetec-apps-repo", "."]
-  # Push the container image to Container Registry
-  - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/skripsi-113/facedetec-apps-repo"]
+# steps:
+#   # Build the container image
+#   # - name: 'gcr.io/cloud-builders/docker'
+#   #   args: ['buildx', 'install']
+#   - name: "gcr.io/cloud-builders/docker"
+#     args: ["build", "--build-arg", "ARCH=arm64", "-t", "gcr.io/skripsi-113/facedetec-apps-repo", "."]
+#   # Push the container image to Container Registry
+#   - name: "gcr.io/cloud-builders/docker"
+#     args: ["push", "gcr.io/skripsi-113/facedetec-apps-repo"]
 
-images: 
-  - gcr.io/skripsi-113/facedetec-apps-repo
+steps:
+- name: 'gcr.io/cloud-builders/curl'
+  args: ['--output', 'buildx', 'https://github.com/docker/buildx/releases/download/v0.5.0/buildx-v0.5.0.linux-arm64']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--platform=linux/arm64', '-t', 'gcr.io/skripsi-113/facedetec-apps-repo', '.']
+  env:
+  - 'DOCKER_CLI_EXPERIMENTAL=enabled'
+  - 'DOCKER_BUILDKIT=1'
+- name: 'gcr.io/cloud-builders/bash'
+  args: ['-c', 'mv buildx ~/.docker/cli-plugins/docker-buildx']
+  env:
+  - 'DOCKER_CLI_EXPERIMENTAL=enabled'
+  - 'DOCKER_BUILDKIT=1'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['buildx', 'install']
+  env:
+  - 'DOCKER_CLI_EXPERIMENTAL=enabled'
+  - 'DOCKER_BUILDKIT=1'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['buildx', 'build', '--platform=linux/arm64', '-t', 'gcr.io/skripsi-113/facedetec-apps-repo', '.']
+  env:
+  - 'DOCKER_CLI_EXPERIMENTAL=enabled'
+  - 'DOCKER_BUILDKIT=1'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/skripsi-113/facedetec-apps-repo']
+  env:
+  - 'DOCKER_CLI_EXPERIMENTAL=enabled'
+  - 'DOCKER_BUILDKIT=1'
+
+# images: 
+#   - gcr.io/skripsi-113/facedetec-apps-repo
