@@ -11,7 +11,7 @@ steps:
   - name: "gcr.io/cloud-builders/docker"
     args: ["push", "gcr.io/skripsi-113/facedetec-apps-repo"]
 
-  image
+  image:
   -'gcr.io/cloud-builders/docker:2022-06-20-e2e'
 
 # steps:
