@@ -1,4 +1,4 @@
-FROM arm64v8/debian:latest
+FROM ubuntu:20.04
 FROM python:3
 
 RUN apt-get update && apt-get install -y --fix-missing\
