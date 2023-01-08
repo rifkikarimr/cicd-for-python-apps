@@ -10,11 +10,12 @@ RUN apt-get update && apt-get install -y \
  libgtk-3-dev \
  libboost-python-dev
 
+WORKDIR /app
+
+COPY . .
+
 RUN pip3 install -r requirements.txt
 
-COPY . /app
-
-WORKDIR /app
 
 CMD ["python", "face_detection.py"]
 

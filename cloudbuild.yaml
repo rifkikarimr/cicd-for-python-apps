@@ -11,6 +11,9 @@ steps:
   - name: "gcr.io/cloud-builders/docker"
     args: ["push", "gcr.io/skripsi-113/facedetec-apps-repo"]
 
+  image
+  -'gcr.io/cloud-builders/docker:2022-06-20-e2e'
+
 # steps:
 # - name: 'gcr.io/cloud-builders/curl'
 #   args: ['--output', 'buildx', 'https://github.com/docker/buildx/releases/download/v0.5.0/buildx-v0.5.0.linux-arm64']
