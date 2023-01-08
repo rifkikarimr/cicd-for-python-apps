@@ -1,5 +1,6 @@
 FROM arm64v8/debian:stable
 FROM python:3
+FROM amd64/gcr.io/skripsi-113/facedetec-apps-repo:latest
 
 RUN apt-get update && apt-get install -y --fix-missing\
  build-essential \
@@ -19,6 +20,8 @@ RUN apt-get update && apt-get install -y --fix-missing\
 RUN pip install opencv-python
 
 COPY qemu-user-static /usr/bin
+
+ADD . .
 
 COPY . /app
 
