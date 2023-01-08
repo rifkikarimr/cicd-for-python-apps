@@ -1,7 +1,7 @@
 FROM arm64v8/debian:stable
 FROM python:3
 # Install dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y && apt-cache search libopenblas-dev\
  build-essential \
  cmake \
  libopenblas-dev \
