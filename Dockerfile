@@ -1,15 +1,14 @@
-FROM arm64v8/alpine:latest
-
+FROM ubuntu:20.04
 # Install dependencies
-RUN apk update && apk add --no-cache \
-  opencv-dev \
+RUN apt update && \
+  apt-get install -y opencv-dev \
   opencv-python \
   dlib-dev \
   python3-dev \
   python3-pip \
+  ffmpeg-dev \
+  ffmpeg-libs \
   build-base
-
-RUN apk upgrade --ignore alpine-baselayout
 
 RUN curl -L https://github.com/docker/buildx/releases/download/v0.5.0/buildx-v0.5.0.linux-arm64 -o buildx
 RUN chmod +x buildx
