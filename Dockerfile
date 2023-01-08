@@ -1,7 +1,7 @@
 FROM arm64v8/alpine:3.12
 
 # Install dependencies
-RUN apk update && apk add --no-cache \
+RUN apk update && apk add --no-cache && apk upgrade --ignore alpine-baselayout \
   opencv-dev \
   opencv-python \
   dlib-dev \
