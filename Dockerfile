@@ -1,6 +1,5 @@
 FROM arm64v8/debian:stable
 FROM python:3
-FROM arm64/rifkikarim13/facedetec-arch-raspi:latest
 
 RUN apt-get update && apt-get install -y --fix-missing\
  build-essential \
