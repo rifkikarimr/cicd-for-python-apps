@@ -1,9 +1,9 @@
 steps:
   # Build the container image
-  # - name: 'gcr.io/cloud-builders/docker'
-  #   args: ['buildx', 'install']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['buildx', 'install']
   - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "gcr.io/skripsi-113/facedetec-apps-repo", "."]
+    args: ["buildx", "build", "--platform=linux/arm64", "-t", "gcr.io/skripsi-113/facedetec-apps-repo", "."]
     # env:
     #   - 'DOCKER_CLI_EXPERIMENTAL=enabled'
     # image: 'gcr.io/cloud-builders/docker:2022-06-20-e2e'
