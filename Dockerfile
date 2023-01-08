@@ -1,22 +1,19 @@
 FROM arm64v8/alpine:3.12
 FROM python:3
 
-RUN apt-get -y update 
-RUN apt-get install -y --fix-missing\
-  curl \
-  git \
-  build-base \
-  build-essential \
-  cmake \
-  libopenblas-dev \
-  liblapack-dev \
-  libx11-dev \
-  libgtk-3-dev
-
-RUN pip install opencv-python
-
-COPY . /app
+# Install dependencies
+RUN apk update && apk add --no-cache \
+  opencv-dev \
+  opencv-python \
+  dlib-dev \
+  python3-dev \
+  python3-pip \
+  build-base
 
 WORKDIR /app
 
-CMD ["python", "face-detection.py"]
+COPY . .
+
+RUN pip3 install -r requirements.txt
+
+CMD ["python3", "face-detection.py"]
