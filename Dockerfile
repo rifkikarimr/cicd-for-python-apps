@@ -26,7 +26,7 @@ COPY . /app
 
 WORKDIR /app
 
-RUN make
+# RUN make
 
 CMD ["python", "face_detection.py"]
 
