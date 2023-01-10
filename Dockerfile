@@ -1,8 +1,8 @@
 FROM arm64v8/debian:latest
 FROM python:3
 
-RUN apt-get update --fix-missing
-    build-essential \
+RUN apt-get update --fix-missing \
+    apt-get install build-essential \
     cmake \
     git \
     wget \
