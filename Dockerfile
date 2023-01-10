@@ -28,7 +28,7 @@ WORKDIR /app
 
 # RUN make
 
-CMD ["python", "video-detection.py"]
+CMD ["python", "face-detection.py"]
 
 
 
