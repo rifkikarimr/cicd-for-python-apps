@@ -1,8 +1,12 @@
-FROM ubuntu:18.04
-FROM python:3
+FROM arm64v8/python:3
 
-RUN apt-get update --fix-missing \
-    apt-get install build-essential \
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
     cmake \
     git \
     wget \
@@ -16,7 +20,15 @@ RUN apt-get update --fix-missing \
     libpng-dev \
     libtiff-dev \
     libavformat-dev \
-    libpq-dev
+    libpq-dev \
+    libatlas-base-dev \
+    libjasper-dev \
+    libgtk2.0-dev \
+    libavcodec-dev \
+    libv4l-dev \
+    libxvidcore-dev \
+    libx264-dev \
+    libavresample-dev
 
 # RUN curl -L https://github.com/docker/buildx/releases/download/v0.5.0/buildx-v0.5.0.linux-arm64 -o buildx
 # RUN chmod +x buildx
@@ -39,13 +51,13 @@ RUN wget https://github.com/opencv/opencv/archive/4.5.0.zip && \
     make install && \
     ldconfig
 
+RUN pip install --no-cache-dir -r requirements.txt
+
+
 # COPY qemu-user-static /usr/bin
 
 # ADD . .
-
-COPY . /app
-
-WORKDIR /app
+COPY ..
 
 # RUN make
 
