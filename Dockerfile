@@ -6,29 +6,29 @@ WORKDIR /app
 COPY requirements.txt .
 
 RUN apt-get update && apt-get install -y \
-    build-essential \
-    cmake \
-    git \
-    wget \
-    unzip \
-    yasm \
-    pkg-config \
-    libswscale-dev \
-    libtbb2 \
-    libtbb-dev \
-    libjpeg-dev \
-    libpng-dev \
-    libtiff-dev \
-    libavformat-dev \
-    libpq-dev \
-    libatlas-base-dev \
-    libjasper-dev \
-    libgtk2.0-dev \
-    libavcodec-dev \
-    libv4l-dev \
-    libxvidcore-dev \
-    libx264-dev \
-    libavresample-dev
+    # build-essential \
+    # cmake \
+    # git \
+    # wget \
+    # unzip \
+    # yasm \
+    # pkg-config \
+    # libswscale-dev \
+    # libtbb2 \
+    # libtbb-dev \
+    # libjpeg-dev \
+    # libpng-dev \
+    # libtiff-dev \
+    # libavformat-dev \
+    # libpq-dev \
+    # libatlas-base-dev \
+    # libjasper-dev \
+    # libgtk2.0-dev \
+    # libavcodec-dev \
+    # libv4l-dev \
+    # libxvidcore-dev \
+    # libx264-dev \
+    # libavresample-dev
 
 # RUN curl -L https://github.com/docker/buildx/releases/download/v0.5.0/buildx-v0.5.0.linux-arm64 -o buildx
 # RUN chmod +x buildx
