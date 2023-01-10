@@ -1,4 +1,4 @@
-FROM arm64v8/debian:latest
+FROM ubuntu:18.04
 FROM python:3
 
 RUN apt-get update --fix-missing \
