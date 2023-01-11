@@ -1,5 +1,4 @@
-FROM arm64v8/debian:latest
-FROM python:3
+FROM arm64v8/python:3.8.2
 
 RUN apt-get update && apt-get install -y \
  build-essential \
@@ -16,8 +15,6 @@ RUN pip install opencv-python
 COPY . /app
 
 WORKDIR /app
-
-# RUN make
 
 CMD ["python", "face-detection.py"]
 
